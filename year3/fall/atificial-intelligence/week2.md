@@ -89,7 +89,7 @@
 
 - The table below summarizes the performance of the uninformed search strategies:
 | Algorithm | Complete? | Optimal? | Time Complexity | Space Complexity |
-|---|---|---|---|---|
+|-----------|-----------|----------|-----------------|------------------|
 |Breadth-First | Yes | Yes (if all step costs are equal) | O(b^d) | O(b^d) |
 |Uniform-Cost | Yes | Yes | O(b^(1+⌊C∗/ϵ⌋)) | O(b^(1+⌊C∗/ϵ⌋)) |
 |Depth-First | No | No | O(b^m) | O(bm) |
