@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: nbupg-qehp3
+created: 2024-11-21T19:50:18Z
