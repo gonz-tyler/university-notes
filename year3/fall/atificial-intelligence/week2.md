@@ -88,6 +88,7 @@
   - Space Complexity: How much memory is needed to perform the search? Measured in terms of the maximum number of nodes stored in memory at any point.
 
 - The table below summarizes the performance of the uninformed search strategies:
+
 | Algorithm | Complete? | Optimal? | Time Complexity | Space Complexity |
 |-----------|-----------|----------|-----------------|------------------|
 |Breadth-First | Yes | Yes (if all step costs are equal) | O(b^d) | O(b^d) |
@@ -95,6 +96,7 @@
 |Depth-First | No | No | O(b^m) | O(bm) |
 |Depth-Limited | No | No | O(b^l) | O(bl) |
 |Iterative Deepening | Yes | Yes | O(b^d) | O(bd) |
+
 - Summary
   - Uninformed search explores the search space without using domain-specific knowledge (heuristics).
   - Different uninformed strategies like BFS, DFS, UCS, and IDS have varying trade-offs in terms of time, space, completeness, and optimality.
