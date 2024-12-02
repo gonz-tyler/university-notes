@@ -73,27 +73,17 @@ $$
 #### Steps in Kalman Filter
 - Prediction
 1. Mean Update:
-$$
-\mu_t^- = A \mu_{t-1} + B u_t
-$$
+$\mu_t^- = A \mu_{t-1} + B u_t$
 2. Covariance Update:
-$$
-\Sigma_t^- = A \Sigma_{t-1} A^T + R_t
-$$
+$\Sigma_t^- = A \Sigma_{t-1} A^T + R_t$
 
 - Correction
 1. Kalman Gain:
-$$
-K_t = \Sigma_t^- C^T (C \Sigma_t^- C^T + Q_t)^{-1}
-$$
+$K_t = \Sigma_t^- C^T (C \Sigma_t^- C^T + Q_t)^{-1}$
 2. Mean Update:
-$$
-\mu_t = \mu_t^- + K_t (z_t - C \mu_t^-)
-$$
+$\mu_t = \mu_t^- + K_t (z_t - C \mu_t^-)$
 3. Covariance Update:
-$$
-\Sigma_t = (I - K_t C) \Sigma_t^-
-$$
+$\Sigma_t = (I - K_t C) \Sigma_t^-$
 
 ---
 
@@ -101,49 +91,31 @@ $$
 
 #### Handles Nonlinear Dynamics
 - State Transition
-$$
-x_t = g(x_{t-1}, u_t) + \epsilon_t, \quad \epsilon_t \sim N(0, R_t)
-$$
+$x_t = g(x_{t-1}, u_t) + \epsilon_t, \quad \epsilon_t \sim N(0, R_t)$
 
 - Observation Model
-$$
-z_t = h(x_t) + \delta_t, \quad \delta_t \sim N(0, Q_t)
-$$
+$z_t = h(x_t) + \delta_t, \quad \delta_t \sim N(0, Q_t)$
 
 #### Linearization
 1. Jacobian of Motion Model:
-$$
-G_t = \frac{\partial g(x_{t-1}, u_t)}{\partial x_{t-1}}
-$$
+$G_t = \frac{\partial g(x_{t-1}, u_t)}{\partial x_{t-1}}$
 2. Jacobian of Observation Model:
-$$
-H_t = \frac{\partial h(x_t)}{\partial x_t}
-$$
+$H_t = \frac{\partial h(x_t)}{\partial x_t}$
 
 #### EKF Algorithm
 - Prediction
 1. Mean Update:
-$$
-\mu_t^- = g(\mu_{t-1}, u_t)
-$$
+$\mu_t^- = g(\mu_{t-1}, u_t)$
 2. Covariance Update:
-$$
-\Sigma_t^- = G_t \Sigma_{t-1} G_t^T + R_t
-$$
+$\Sigma_t^- = G_t \Sigma_{t-1} G_t^T + R_t$
 
 - Correction
 1. Kalman Gain:
-$$
-K_t = \Sigma_t^- H_t^T (H_t \Sigma_t^- H_t^T + Q_t)^{-1}
-$$
+$K_t = \Sigma_t^- H_t^T (H_t \Sigma_t^- H_t^T + Q_t)^{-1}$
 2. Mean Update:
-$$
-\mu_t = \mu_t^- + K_t (z_t - h(\mu_t^-))
-$$
+$\mu_t = \mu_t^- + K_t (z_t - h(\mu_t^-))$
 3. Covariance Update:
-$$
-\Sigma_t = (I - K_t H_t) \Sigma_t^-
-$$
+$\Sigma_t = (I - K_t H_t) \Sigma_t^-$
 
 ---
 
