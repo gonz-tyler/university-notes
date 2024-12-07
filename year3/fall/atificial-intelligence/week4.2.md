@@ -37,8 +37,8 @@
     - **Objects**: Individuals in the domain.
     - **Predicates**: Properties or relationships (Loves(Alice,Bob)).
     - **Quantifiers**:
-        - Universal ($ \forall x$): For all x, a statement holds.
-        - Existential ($ \exists x $): There exists an x for which a statement holds.
+        - Universal ($\forall x$): For all x, a statement holds.
+        - Existential ($\exists x $): There exists an x for which a statement holds.
 2. **Inference in FOL**:
     - **Unification**: Finds a substitution of variables that makes expressions identical.
     - **Generalized Modus Ponens**: Applies to FOL for combining premises and inferring conclusions.
@@ -52,10 +52,7 @@
 
 1. **Knowledge Representation**:
     - Uses declarative knowledge to encode facts and rules.
-    - **Facts**: Parent(John,Mary).
-        
-        Parent(John,Mary)Parent(John, Mary)
-        
+    - **Facts**: Parent(John,Mary).        
     - **Rules**: Ancestor(x,y)←Parent(x,z)∧Ancestor(z,y).
 2. **Inference in Logic Programming**:
     - **Forward Chaining**:

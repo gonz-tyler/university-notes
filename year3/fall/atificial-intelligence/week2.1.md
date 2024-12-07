@@ -29,7 +29,7 @@
         - Expands the node with the lowest path cost (uses a priority queue).
         - **Characteristics**:
             - Complete and optimal.
-            - Time/Space Complexity: $O(b^{1+\lceil C^*/\epsilon \rceil})$, where $C^*$ is the cost of the optimal solution, and $\epsilon$ is the smallest step cost.
+            - Time/Space Complexity: $O(b^{1+\lceil C^* / \epsilon \rceil})$, where $C^*$ is the cost of the optimal solution, and $\epsilon$ is the smallest step cost.
     - **Depth-First Search (DFS)**:
         - Expands the deepest unexpanded node (uses a stack).
         - **Characteristics**:
