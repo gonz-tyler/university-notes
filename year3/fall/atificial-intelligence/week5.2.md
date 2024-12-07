@@ -13,8 +13,8 @@
         - **Initial State Probabilities**: The probability distribution of the initial state.
 2. **HMM as a Probabilistic Model**:
     - A sequence of observations is modeled as a sequence of hidden states and observations, where:
-    $ P(O_1, O_2, \dots, O_T | \lambda) = \sum_{S_1, S_2, \dots, S_T} P(O_1, O_2, \dots, O_T, S_1, S_2, \dots, S_T | \lambda) $
-    where Oi represents the observation at time i, Si represents the hidden state at time i, and λ represents the model parameters (transition, emission, and initial probabilities).
+    $$P(O_1, O_2, \dots, O_T | \lambda) = \sum_{S_1, S_2, \dots, S_T} P(O_1, O_2, \dots, O_T, S_1, S_2, \dots, S_T | \lambda)$$
+    where $O_i$ represents the observation at time $i$, $S_i$ represents the hidden state at time $i$, and $\lambda$ represents the model parameters (transition, emission, and initial probabilities).
 3. **The Three Fundamental Problems of HMMs**:
     - **1. Evaluation Problem**:
         - Given a sequence of observations, compute the probability of the sequence given the model parameters $P(O_1, O_2, \dots, O_T | \lambda)$
