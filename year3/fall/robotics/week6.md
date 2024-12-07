@@ -61,14 +61,10 @@ $$
 
 #### System Model
 - State Transition
-$$
-x_t = A x_{t-1} + B u_t + \epsilon_t, \quad \epsilon_t \sim N(0, R_t)
-$$
+$x_t = A x_{t-1} + B u_t + \epsilon_t, \quad \epsilon_t \sim N(0, R_t)$
 
 - Observation Model
-$$
-z_t = C x_t + \delta_t, \quad \delta_t \sim N(0, Q_t)
-$$
+$z_t = C x_t + \delta_t, \quad \delta_t \sim N(0, Q_t)$
 
 #### Steps in Kalman Filter
 - Prediction
