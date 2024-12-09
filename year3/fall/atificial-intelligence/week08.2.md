@@ -11,7 +11,7 @@
     - **Linear regression** is the simplest and most widely used regression technique.
     - The model assumes a **linear relationship** between the input variables and the output.
     - The equation for simple linear regression (with one feature) is: 
-    $$ y = \beta_0 + \beta_1 x $$
+    $$y = \beta_0 + \beta_1 x$$
         - $y$ is the predicted output (dependent variable).
         - $x$ is the input feature (independent variable).
         - $\beta_0$​ is the intercept (the value of $y$ when $x=0$).
