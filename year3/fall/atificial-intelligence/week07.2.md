@@ -30,7 +30,7 @@
     - **Value iteration** is an algorithm used to compute the optimal policy for an MDP.
         - It works by iteratively improving the estimated value of each state (the expected reward starting from that state), using the Bellman equation:
             
-            $$ V(s) = \max_a \left( R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s') \right) $$
+            $$V(s) = \max_a \left( R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s') \right)$$
             
         - The algorithm continues until the values converge to the optimal solution.
         - **Bellman Equation**: Describes how the value of a state is related to the values of successor states, considering immediate rewards and future rewards discounted by $ \gamma $
@@ -43,7 +43,7 @@
     - **Q-learning** is a model-free reinforcement learning algorithm that learns the value of state-action pairs, called **Q-values**, without needing a model of the environment.
     - It is used to solve problems where the agent must learn the best actions to take through exploration and experience.
     - The **Q-value update** is given by:
-    $$ Q(s, a) = Q(s, a) + \alpha \left( R(s, a) + \gamma \max_a Q(s', a) - Q(s, a) \right) $$
+    $$Q(s, a) = Q(s, a) + \alpha \left( R(s, a) + \gamma \max_a Q(s', a) - Q(s, a) \right)$$
         - **α** is the learning rate, and $\max_a Q(s', a)$ is the estimate of the optimal future value of the next state.
 8. **Partially Observable MDPs (POMDPs)**:
     - In some domains, the agent might not have complete information about the current state, leading to **Partially Observable Markov Decision Processes (POMDPs)**.
