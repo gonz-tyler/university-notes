@@ -27,7 +27,7 @@
     - **Gini Impurity**: Another common splitting criterion used, particularly in decision trees like **CART (Classification and Regression Trees)**.
         - Gini impurity measures the **impurity** or **impurity** of a node and is used to select the best feature to split on.
         - The formula for **Gini impurity** is:
-        $$ Gini(t) = 1 - \sum_{i=1}^{k} p_i^2 $$
+        $$Gini(t) = 1 - \sum_{i=1}^{k} p_i^2$$
         where $p_i​$ is the probability of choosing an element of class $i$ in the node $t$.
             
             
