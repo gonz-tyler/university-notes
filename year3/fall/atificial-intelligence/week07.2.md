@@ -33,7 +33,7 @@
             $$V(s) = \max_a \left( R(s, a) + \gamma \sum_{s'} T(s, a, s') V(s') \right)$$
             
         - The algorithm continues until the values converge to the optimal solution.
-        - **Bellman Equation**: Describes how the value of a state is related to the values of successor states, considering immediate rewards and future rewards discounted by $ \gamma $
+        - **Bellman Equation**: Describes how the value of a state is related to the values of successor states, considering immediate rewards and future rewards discounted by $\gamma$
 6. **Policy Iteration**:
     - **Policy iteration** is another algorithm for solving MDPs, which alternates between:
         1. **Policy Evaluation**: Calculate the value of each state under the current policy.
