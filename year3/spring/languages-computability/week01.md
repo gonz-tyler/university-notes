@@ -77,7 +77,7 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 3. **∅** (empty set) is an RE.
 4. **(R1 ∪ R2)** (union) is an RE.
 5. **(R1 ◦ R2)** (concatenation) is an RE.
-6. **(R1*)** (Kleene star) is an RE.
+6. **(R1\*)** (Kleene star) is an RE.
 
 ### Language Represented by REs
 - **L(a) = {a}** for any symbol a.
@@ -85,13 +85,13 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 - **L(∅) = ∅**
 - **L(R1 ∪ R2) = L(R1) ∪ L(R2)**
 - **L(R1 ◦ R2) = {w1 ◦ w2 | w1 ∈ L(R1), w2 ∈ L(R2)}**
-- **L(R*) = \⋃∞ i=0 L(R i)**
+- **L(R\*) = \⋃∞ i=0 L(R i)**
 
 ### Examples
 1. **L(0*) = {ϵ, 0, 00, 000, ...}**
 2. **L((0 ∪ 1) ◦ 1) = {01, 11}**
-3. **L(0*10*) =** The set of strings with exactly one '1'.
-4. **L(Σ*1Σ*) =** The set of strings with at least one '1'.
+3. **L(0\*10\*) =** The set of strings with exactly one '1'.
+4. **L(Σ\*1Σ\*) =** The set of strings with at least one '1'.
 
 ### Notation Variants
 - Some books use **R1 + R2** instead of **R1 ∪ R2**.
@@ -100,7 +100,7 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 
 ### Interesting Properties
 - **∅ ◦ R = R ◦ ∅ = ∅** (Concatenation with empty set results in empty set).
-- **(R*)* = R*** (Star is idempotent).
+- **(R\*)\* = R\*** (Star is idempotent).
 - **R ∪ ∅ = R** (Union with empty set is R).
 - **R ◦ ϵ = R** (Concatenation with empty string is R).
 - **R ∪ ϵ ≠ R** (Union with empty string is different if R ≠ ϵ).
@@ -117,7 +117,7 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 - Examples:
   - **L = {ϵ, 01, 0011, 000111, ...}** (not regular).
   - **L = {w | w has equal number of 0s and 1s}** (not regular).
-  - **L = {ww | w ∈ Σ*}** (not regular).
+  - **L = {ww | w ∈ Σ\*}** (not regular).
 
 ### Pumping Lemma
 - A technique to prove that a language is **not** regular.
