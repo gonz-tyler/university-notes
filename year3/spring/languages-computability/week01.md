@@ -88,7 +88,7 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 - **L(R\*) = \⋃∞ i=0 L(R i)**
 
 ### Examples
-1. **L(0*) = {ϵ, 0, 00, 000, ...}**
+1. **L(0\*) = {ϵ, 0, 00, 000, ...}**
 2. **L((0 ∪ 1) ◦ 1) = {01, 11}**
 3. **L(0\*10\*) =** The set of strings with exactly one '1'.
 4. **L(Σ\*1Σ\*) =** The set of strings with at least one '1'.
