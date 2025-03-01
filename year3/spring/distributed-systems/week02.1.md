@@ -1,4 +1,4 @@
-# Lecture 03: Serialization, Callbacks, RMI Activation
+# Week 2.1: Serialization, Callbacks, RMI Activation
 ## Notes
 ---
 
