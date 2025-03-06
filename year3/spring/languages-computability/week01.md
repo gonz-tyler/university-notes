@@ -125,20 +125,46 @@ A Regular Expression (RE) over an alphabet Σ is defined inductively:
 - If a language **fails** the pumping lemma, it is **not regular**.
 
 ## Summary
-### What You Should Know
-1. **Finite State Automata**
-   - Understand how FSAs process strings.
-   - Design FSAs for given languages.
-   - Prove whether an FSA can recognize a language.
-2. **Regular Expressions**
-   - Compute the language of an RE.
-   - Convert language descriptions to REs.
-3. **Equivalence of FSAs and REs**
-   - Convert between FSAs and REs.
-4. **Non-Regular Languages**
-   - Identify languages that cannot be recognized by FSAs.
-   - Use the Pumping Lemma to prove non-regularity.
+Finite State Automata (FSAs):
+- What is it? An FSA is a computational model used to recognize patterns in strings. It consists of states, transitions between states, and an input string. The FSA reads the input string one symbol at a time and transitions between states based on the current symbol.
 
-### Next Steps
-- Exercises on FSAs and REs to reinforce concepts.
-- Further studies in computability and complexity theory.
+- Example: Consider an FSA that recognizes strings with an odd number of `1`s over the alphabet `{0, 1}`.
+
+  - States: Two states: `q_even` (even number of `1`s) and `q_odd` (odd number of `1`s).
+
+  - Transitions:
+
+    - From `q_even`, if you read `0`, stay in `q_even`.
+
+    - From `q_even`, if you read `1`, move to `q_odd`.
+
+    - From `q_odd`, if you read `0`, stay in `q_odd`.
+
+    - From `q_odd`, if you read `1`, move back to `q_even`.
+
+  - Accept State: `q_odd` is the accepting state.
+
+  If the input string is `101`, the FSA will:
+
+  - Start in `q_even`.
+
+  - Read `1`, move to `q_odd`.
+
+  - Read `0`, stay in `q_odd`.
+
+  - Read `1`, move back to `q_even`.
+
+  - Since the final state is `q_even` (not accepting), the string `101` is not accepted.
+
+Regular Expressions (REs):
+- What is it? A regular expression is a sequence of characters that defines a search pattern, typically used for string matching. REs are used to describe regular languages, which are languages that can be recognized by FSAs.
+
+- Example: The regular expression `(0 ∪ 1)*1(0 ∪ 1)*` describes all strings over `{0, 1}` that contain at least one `1`.
+
+  - `(0 ∪ 1)*` means any combination of `0`s and `1`s (including none).
+
+  - `1` means the string must contain at least one `1`.
+
+  - `(0 ∪ 1)*` again means any combination of `0`s and `1`s after the `1`.
+
+  So, strings like `010`, `111`, and `1001` are accepted, but `000` is not.
