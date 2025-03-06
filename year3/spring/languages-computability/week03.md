@@ -1,89 +1,171 @@
-# Week 3: Context-free Languages
+# **Week 3: Context-free Languages**
 ## Notes
 ---
 
-### 1. Grammars
-- **Grammars** are used to define languages.
-- A **grammar** is a 4-tuple \( G = (N, T, S, P) \):
-  - \( N \): Non-terminals (finite alphabet).
-  - \( T \): Terminals (finite alphabet).
-  - \( S \): Start symbol (\( S \in N \)).
-  - \( P \): Productions (rules of the form \( \alpha \rightarrow \beta \)).
+### **1. Grammars**
 
-#### Example Grammar
-- For the language \( L = \{a^n b^n : n \geq 0\} \):
-  - \( N = \{X\} \)
-  - \( T = \{a, b\} \)
-  - \( S = X \)
-  - \( P = \{X \rightarrow \epsilon, X \rightarrow aXb\} \)
+### **What is a Grammar?**
 
-### 2. Context-free Grammars (CFGs)
-- A **CFG** is a grammar where all productions are of the form \( \alpha \rightarrow \beta \), where \( \alpha \in N \) (a single non-terminal).
-- **Context-free** because the left-hand side is a single non-terminal, and the rule can be applied regardless of the context.
+- A **grammar** is a set of rules used to define a language.
+- It consists of:
+    - **Non-terminals (N)**: Symbols that can be replaced by other symbols (e.g., `S`, `A`, `B`).
+    - **Terminals (T)**: Symbols that cannot be replaced (e.g., `a`, `b`, `0`, `1`).
+    - **Start Symbol (S)**: The initial symbol from which all derivations begin.
+    - **Productions (P)**: Rules of the form α→β*α*→*β*, where α*α* is a non-terminal and β*β* is a string of terminals and non-terminals.
 
-#### Example CFG
+### **Example Grammar**
+
+- For the language L={anbn:n≥0}*L*={*anbn*:*n*≥0}:
+    - N={X}*N*={*X*}
+    - T={a,b}*T*={*a*,*b*}
+    - S=X*S*=*X*
+    - P={X→ϵ,X→aXb}*P*={*X*→*ϵ*,*X*→*aXb*}
+- **Derivation Example**:
+    - Start with X*X*.
+    - Apply X→aXb*X*→*aXb*: aXb*aXb*.
+    - Apply X→aXb*X*→*aXb* again: aaXbb*aaXbb*.
+    - Apply X→ϵ*X*→*ϵ*: aabb*aabb*.
+
+---
+
+### **2. Context-free Grammars (CFGs)**
+
+### **What is a CFG?**
+
+- A **CFG** is a grammar where all productions are of the form α→β*α*→*β*, where α*α* is a **single non-terminal**.
+- **Context-free** because the left-hand side is a single non-terminal, and the rule can be applied regardless of the context.
+
+### **Example CFG**
+
 - For algebraic expressions:
-  - \( G = (\{S\}, \{a, +, *, (,)\}, S, \{S \rightarrow S + S | S * S | (S) | a\}) \)
+    - G=({S},{a,+,∗,(,)},S,{S→S+S∣S∗S∣(S)∣a})*G*=({*S*},{*a*,+,∗,(,)},*S*,{*S*→*S*+*S*∣*S*∗*S*∣(*S*)∣*a*})
+- **Derivation Example**:
+    - Start with S*S*.
+    - Apply S→S+S*S*→*S*+*S*: S+S*S*+*S*.
+    - Apply S→a*S*→*a* to both S*S*: a+a*a*+*a*.
 
-### 3. Regular Grammars
-- A **regular grammar** is a CFG where each production is of the form:
-  - \( A \rightarrow t \) or \( A \rightarrow tB \) or \( A \rightarrow \epsilon \), where \( A, B \in N \) and \( t \in T \).
-- Regular grammars generate **regular languages**.
+---
 
-#### Example Regular Grammar
-- \( S \rightarrow aA \), \( S \rightarrow bB \), \( A \rightarrow aS \), \( A \rightarrow a \), \( B \rightarrow bS \), \( B \rightarrow b \).
+### **3. Regular Grammars**
 
-### 4. Applications & Constructing Grammars
-- **Applications**:
-  - Natural language processing.
-  - Formalizing designs and specifications.
-  - Pattern recognition.
-- **Constructing Grammars**:
-  - For languages like \( (a \circ b)^n \circ c^m \circ (a \circ b)^n \), we need rules for sequencing, bracketing, and nesting.
+### **What is a Regular Grammar?**
 
-### 5. Parsing
-- **Parsing** is the process of determining whether a string belongs to a language defined by a grammar.
-- **Derivation trees** are used to represent the structure of the derivation.
+- A **regular grammar** is a CFG where each production is of the form:
+    - A→t*A*→*t* or A→tB*A*→*tB* or A→ϵ*A*→*ϵ*, where A,B∈N*A*,*B*∈*N* and t∈T*t*∈*T*.
+- Regular grammars generate **regular languages**.
 
-### 6. Ambiguity
-- A grammar is **ambiguous** if a string has more than one derivation tree.
-- **Example**: The grammar \( S \rightarrow S + S | S * S | (S) | a \) is ambiguous for the string \( a + a * a \).
+### **Example Regular Grammar**
 
-### 7. Chomsky Normal Form (CNF)
-- A CFG is in **CNF** if every rule is of the form:
-  - \( A \rightarrow BC \) or \( A \rightarrow a \), where \( A, B, C \in N \) and \( a \in T \).
+- S→aA*S*→*aA*, S→bB*S*→*bB*, A→aS*A*→*aS*, A→a*A*→*a*, B→bS*B*→*bS*, B→b*B*→*b*.
+- **Derivation Example**:
+    - Start with S*S*.
+    - Apply S→aA*S*→*aA*: aA*aA*.
+    - Apply A→a*A*→*a*: aa*aa*.
+
+---
+
+### **4. Applications & Constructing Grammars**
+
+### **Applications of Grammars**
+
+- **Natural Language Processing**: Parsing sentences in human languages.
+- **Formalizing Designs**: Specifying the syntax of programming languages.
+- **Pattern Recognition**: Recognizing patterns in data.
+
+### **Constructing Grammars**
+
+- For languages like (a∘b)n∘cm∘(a∘b)n(*a*∘*b*)*n*∘*cm*∘(*a*∘*b*)*n*, we need rules for:
+    - **Sequencing**: Generating sequences of symbols.
+    - **Bracketing**: Ensuring matching pairs of symbols.
+    - **Nesting**: Handling nested structures.
+
+---
+
+### **5. Parsing**
+
+### **What is Parsing?**
+
+- **Parsing** is the process of determining whether a string belongs to a language defined by a grammar.
+- **Derivation Trees**: Used to represent the structure of the derivation.
+
+### **Example Parsing**
+
+- For the grammar S→S+S∣S∗S∣(S)∣a*S*→*S*+*S*∣*S*∗*S*∣(*S*)∣*a*, the string a+a∗a*a*+*a*∗*a* can be parsed in multiple ways, leading to different derivation trees.
+
+---
+
+### **6. Ambiguity**
+
+### **What is Ambiguity?**
+
+- A grammar is **ambiguous** if a string has more than one derivation tree.
+- **Example**: The grammar S→S+S∣S∗S∣(S)∣a*S*→*S*+*S*∣*S*∗*S*∣(*S*)∣*a* is ambiguous for the string a+a∗a*a*+*a*∗*a*.
+
+### **Resolving Ambiguity**
+
+- To make the grammar unambiguous, we can introduce new non-terminals and rules to enforce precedence and associativity.
+- **Example**:
+    - S→S+T∣T*S*→*S*+*T*∣*T*
+    - T→T∗F∣F*T*→*T*∗*F*∣*F*
+    - F→(S)∣a*F*→(*S*)∣*a*
+
+---
+
+### **7. Chomsky Normal Form (CNF)**
+
+### **What is CNF?**
+
+- A CFG is in **CNF** if every rule is of the form:
+    - A→BC*A*→*BC* or A→a*A*→*a*, where A,B,C∈N*A*,*B*,*C*∈*N* and a∈T*a*∈*T*.
 - **Theorem**: Any context-free language can be generated by a CFG in CNF.
 
-## Summary
-Pushdown Automata (PDAs):
-- What is it? A PDA is an extension of an FSA that includes a stack, which provides additional memory. The stack allows the PDA to recognize context-free languages (CFLs), which are more complex than regular languages.
+### **Example Conversion to CNF**
 
-- Example: Consider a PDA that recognizes the language {0^n 1^n | n ≥ 0} (strings with an equal number of 0s followed by 1s).
+- For the grammar S→aSb∣ϵ*S*→*aSb*∣*ϵ*:
+    - Introduce new non-terminals:
+        - A→a*A*→*a*
+        - B→b*B*→*b*
+    - Rewrite the rules:
+        - S→ASB∣ϵ*S*→*ASB*∣*ϵ*
+        - S→AB*S*→*AB*
 
-  - States: Three states: q0, q1, and q2.
+---
 
-  - Transitions:
+### **Pushdown Automata (PDAs)**
 
-    - From `q0`, on `0`, push `0` onto the stack and stay in `q0`.
+### **What is a PDA?**
 
-    - From `q0`, on `1`, pop `0` from the stack and move to `q1`.
+- A **PDA** is an extension of an FSA that includes a **stack**, which provides additional memory.
+- PDAs are equivalent to CFGs in expressive power.
 
-    - From `q1`, on `1`, pop `0` from the stack and stay in `q1`.
+### **Example PDA**
 
-    - From `q1`, on empty input and empty stack, move to `q2` (accepting state).
+- For the language {0n1n∣n≥0}{0*n*1*n*∣*n*≥0}:
+    - **States**: Three states: `q0`, `q1`, and `q2`.
+    - **Transitions**:
+        - From `q0`, on `0`, push `0` onto the stack and stay in `q0`.
+        - From `q0`, on `1`, pop `0` from the stack and move to `q1`.
+        - From `q1`, on `1`, pop `0` from the stack and stay in `q1`.
+        - From `q1`, on empty input and empty stack, move to `q2` (accepting state).
+- **Execution Example**:
+    - Input: `0011`
+        - Start in `q0` with an empty stack.
+        - Read `0`, push `0` onto the stack.
+        - Read `0`, push another `0` onto the stack.
+        - Read `1`, pop `0` from the stack and move to `q1`.
+        - Read `1`, pop `0` from the stack and stay in `q1`.
+        - Since the stack is empty and the input is fully read, move to `q2` (accepting state).
 
-  - Accept State: `q2`.
+---
 
-  If the input string is `0011`, the PDA will:
+### **Summary**
 
-  - Start in `q0` with an empty stack.
+### **Context-free Grammars (CFGs)**:
 
-  - Read `0`, push `0` onto the stack.
+- **What is it?** A CFG is a set of recursive rules used to generate strings in a context-free language.
+- **Example**: A CFG that generates the language {anbn∣n≥0}{*anbn*∣*n*≥0}.
 
-  - Read `0`, push another `0` onto the stack.
+### **Pushdown Automata (PDAs)**:
 
-  - Read `1`, pop `0` from the stack and move to `q1`.
-
-  - Read `1`, pop `0` from the stack and stay in `q1`.
-
-  - Since the stack is empty and the input is fully read, move to `q2` (accepting state).
+- **What is it?** A PDA is an extension of an FSA that includes a stack, allowing it to recognize context-free languages.
+- **Example**: A PDA that recognizes the language {0n1n∣n≥0}{0*n*1*n*∣*n*≥0}.
