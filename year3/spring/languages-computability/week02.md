@@ -29,17 +29,17 @@
 
 ### **NFSA as a 5-tuple**
 
-- An **NFSA** is defined as a 5-tuple N=(Q,Σ,δ,q0,F)*N*=(*Q*,Σ,*δ*,*q*0​,*F*):
-    - Q*Q*: Finite set of states.
-    - ΣΣ: Input alphabet.
-    - δ*δ*: Transition function Q×Σϵ→P(Q)*Q*×Σ*ϵ*​→*P*(*Q*), where Σϵ=Σ∪{ϵ}Σ*ϵ*​=Σ∪{*ϵ*}.
-    - q0*q*0​: Start state (q0∈Q*q*0​∈*Q*).
-    - F*F*: Set of accept states (F⊆Q*F*⊆*Q*).
+- An **NFSA** is defined as a 5-tuple N=(Q,Σ,δ,q0,F):
+    - Q: Finite set of states.
+    - Σ: Input alphabet.
+    - δ: Transition function Q×Σϵ→P(Q), where Σϵ=Σ∪{ϵ}.
+    - q0​: Start state (q0∈Q).
+    - F: Set of accept states (F⊆Q).
 
 ### **Transition Function**
 
-- The transition function δ*δ* returns a **set of states** rather than a single state.
-- For example, δ(q1,0)={q2,q3}*δ*(*q*1​,0)={*q*2​,*q*3​} means that from state q1*q*1​, reading input symbol `0`, the NFSA can transition to either q2*q*2​ or q3*q*3​.
+- The transition function δ returns a **set of states** rather than a single state.
+- For example, δ(q1,0)={q2,q3} means that from state q1​, reading input symbol `0`, the NFSA can transition to either q2​ or q3.
 
 ---
 
@@ -79,12 +79,12 @@
 
 - Given an NFSA with states {q1,q2}{*q*1​,*q*2​}, the corresponding DFSA will have states:
     - ∅∅ (empty set).
-    - {q1}{*q*1​}.
-    - {q2}{*q*2​}.
-    - {q1,q2}{*q*1​,*q*2​}.
+    - {q1}.
+    - {q2}.
+    - {q1,q2}.
 - The transitions in the DFSA are defined based on the transitions of the NFSA. For example:
-    - If δ(q1,0)={q2}*δ*(*q*1​,0)={*q*2​} and δ(q2,0)={q1}*δ*(*q*2​,0)={*q*1​}, then in the DFSA:
-        - From {q1,q2}{*q*1​,*q*2​}, on input `0`, the DFSA transitions to {q1,q2}{*q*1​,*q*2​}.
+    - If δ(q1,0)={q2} and δ(q2,0)={q1}, then in the DFSA:
+        - From {q1,q2}, on input `0`, the DFSA transitions to {q1,q2}.
 
 ---
 
@@ -96,22 +96,22 @@
 
 ### **Closure Under Union**
 
-- If L1*L*1​ and L2*L*2​ are regular languages, then L1∪L2*L*1​∪*L*2​ is also regular.
+- If L1​ and L2​ are regular languages, then L1∪L2 is also regular.
 - **Proof Idea**:
-    - Given two NFSAs N1*N*1​ and N2*N*2​, we can construct a new NFSA N*N* that accepts L(N1)∪L(N2)*L*(*N*1​)∪*L*(*N*2​).
-    - The new NFSA N*N* has a new start state with **ε-transitions** to the start states of N1*N*1​ and N2*N*2​.
+    - Given two NFSAs N1​ and N2, we can construct a new NFSA N that accepts L(N1)∪L(N2).
+    - The new NFSA N has a new start state with **ε-transitions** to the start states of N1​ and N2​.
 
 ### **Closure Under Concatenation**
 
-- If L1*L*1​ and L2*L*2​ are regular languages, then L1∘L2*L*1​∘*L*2​ (concatenation) is also regular.
+- If L1​ and L2​ are regular languages, then L1∘L2 (concatenation) is also regular.
 - **Proof Idea**:
-    - The NFSA for L1∘L2*L*1​∘*L*2​ connects the accept states of N1*N*1​ to the start state of N2*N*2​ using ε-transitions.
+    - The NFSA for L1∘L2 connects the accept states of N1*N*1​ to the start state of N2*N*2​ using ε-transitions.
 
 ### **Closure Under Star**
 
-- If L*L* is a regular language, then L∗*L*∗ (Kleene star) is also regular.
+- If L is a regular language, then L* (Kleene star) is also regular.
 - **Proof Idea**:
-    - The NFSA for L∗*L*∗ adds ε-transitions from the accept states back to the start state, allowing for zero or more repetitions of L*L*.
+    - The NFSA for L* adds ε-transitions from the accept states back to the start state, allowing for zero or more repetitions of L.
 
 ---
 
