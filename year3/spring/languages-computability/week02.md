@@ -60,3 +60,33 @@
 #### Proof of Closure Under Union
 - Given two NFSAs \( N_1 \) and \( N_2 \), we can construct an NFSA \( N \) that accepts \( L(N_1) \cup L(N_2) \).
 - The new NFSA \( N \) has a new start state with ε-transitions to the start states of \( N_1 \) and \( N_2 \).
+
+## Summary
+Non-deterministic Finite State Automata (NFSAs):
+- What is it? An NFSA is similar to an FSA, but it can have multiple transitions for the same input symbol from a given state. This means that the NFSA can be in multiple states at once, and it accepts a string if any of the possible paths leads to an accepting state.
+
+- Example: Consider an NFSA that recognizes strings ending with `01` over the alphabet `{0, 1}`.
+
+  - States: Three states: `q0`, `q1`, and `q2`.
+
+  - Transitions:
+
+    - From `q0`, on `0`, go to `q0` or `q1`.
+
+    - From `q0`, on `1`, go to `q0`.
+
+    - From `q1`, on `1`, go to `q2`.
+
+  - Accept State: `q2`.
+
+  If the input string is `001`, the NFSA can:
+
+  - Start in `q0`.
+
+  - Read `0`, stay in `q0` or move to `q1`.
+
+  - Read `0`, stay in `q0` or move to `q1`.
+
+  - Read `1`, move to `q2` (if in `q1`).
+
+  - Since one path leads to `q2` (accepting state), the string `001` is accepted.
