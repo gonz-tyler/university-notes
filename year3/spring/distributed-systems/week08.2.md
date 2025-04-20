@@ -1,4 +1,4 @@
-# Week08.2: Secure Programming II
+# Week 08.2: Secure Programming II
 ## Notes
 ---
 
