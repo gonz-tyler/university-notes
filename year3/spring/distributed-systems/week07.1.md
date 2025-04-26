@@ -152,6 +152,8 @@ A deadlock occurs if all of the following are true:
 	- If U is waiting for, e.g., transaction V to release b, then V is added to the path recorded by the probe, a new probe `<T- ->U-->V>` is constructed 
 	- If transaction V itself, again, is waiting for an object on some other server, the probe is forwarded to that server
 
+![Screenshot](https://github.com/gonz-tyler/university-notes/blob/main/year3/spring/distributed-systems/Pasted%20image%2020250426190918.png)
+
 ![[Pasted image 20250426190918.png]]
 - When a server receives a probe, it also checks for a deadlock
 	- If there is a transaction blocking access to a data object at the server and itself waiting, it is added to the probe
