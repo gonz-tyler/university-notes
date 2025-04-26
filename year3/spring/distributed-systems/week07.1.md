@@ -140,6 +140,24 @@ A deadlock occurs if all of the following are true:
 - Cycle means deadlock.
 - Abort the transaction with the lowest priority.
 
+#### In depth example
+![[Pasted image 20250426190458.png]]
+- A probe is initiated when  
+	1. A server notes that a transaction T starts waiting for  another transaction U to release a resource  
+	2. Transaction U itself waits for release of a locked resource  on another server  
+- The probe is initialised with the path `<T-->U>` and sent to the server where the locked resource is managed
+
+![[Pasted image 20250426190724.png]]
+- When a server receives a probe `<T-->U>`, it first checks whether U is waiting itself for a resource to be released at the server: 
+	- If U is waiting for, e.g., transaction V to release b, then V is added to the path recorded by the probe, a new probe `<T- ->U-->V>` is constructed 
+	- If transaction V itself, again, is waiting for an object on some other server, the probe is forwarded to that server
+
+![[Pasted image 20250426190918.png]]
+- When a server receives a probe, it also checks for a deadlock
+	- If there is a transaction blocking access to a data object at the server and itself waiting, it is added to the probe
+	- If the probe contains now a cycle – e.g. `<T-->U-->V-->T>`,  then a deadlock has been detected
+- One of T, U or V must be aborted  
+
 ---
 
 ### Prioritization and Probe Optimization
