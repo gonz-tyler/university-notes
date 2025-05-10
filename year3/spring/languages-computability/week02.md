@@ -17,7 +17,7 @@
 - **NFSAs**:
     - For each state and input symbol, there can be **zero, one, or multiple transitions**.
     - Can have **ε-transitions** (transitions that do not consume any input symbol).
-
+![](Pasted%20image%2020250510205152.png)
 #### Example NFSA
 
 - Consider an NFSA that accepts all strings over `{0, 1}` that end with `01`.
@@ -29,14 +29,14 @@
 
 #### NFSA as a 5-tuple
 
-- An **NFSA** is defined as a 5-tuple N=(Q,Σ,δ,q0,F):
-    - Q: Finite set of states.
-    - Σ: Input alphabet.
-    - δ: Transition function Q×Σϵ→P(Q), where Σϵ=Σ∪{ϵ}.
-    - q0​: Start state (q0∈Q).
-    - F: Set of accept states (F⊆Q).
+- An **NFSA** is defined as a 5-tuple $N=(Q,\Sigma,\delta,q_0,F)$:
+    - $Q$: Finite set of **states**
+    - $\Sigma$: Input **alphabet**
+    - $\delta$: **Transition function** $Q\times\Sigma_\varepsilon\mapsto P(Q)$, where $\Sigma_\varepsilon=\Sigma\cup\{\varepsilon\}$ and $P(Q) = \{\emptyset,\{a\},\{b\},\{a,b\}\}$
+    - $q_0$​: **Start state**
+    - $F\subseteq Q$: Set of **accept states**
 
-#### Transition Function
+#### Transition Function - NFSAs Key Idea
 
 - The transition function δ returns a **set of states** rather than a single state.
 - For example, δ(q1,0)={q2,q3} means that from state q1​, reading input symbol `0`, the NFSA can transition to either q2​ or q3.
@@ -53,11 +53,41 @@
 
 #### Example Execution
 
-- Consider an NFSA that accepts strings with `1` in the **third position from the end**.
-- For the input `0101`, the NFSA will explore multiple paths:
-    - One path might guess that the third symbol from the end is `1` and accept the string.
-    - Another path might guess incorrectly and reject the string.
-- If **at least one path** leads to an accept state, the string is accepted.
+- NFSA M
+	![[Pasted image 20250510212219.png]]
+
+- Example is $010 \in L(M)$
+- **step 0:** 010
+	- we begin at the initial state $q_0$
+	![](Pasted%20image%2020250510211141.png)
+- **step 1:** **0**10
+	- we read 0 and move to $q_1$ from $q_0$
+	![](Pasted%20image%2020250510212014.png)
+- **step 2:** 0**1**0
+	- we read 1 and stay in $q_1$
+	![](Pasted%20image%2020250510212104.png)
+- **step 3:** 0**1**0
+	- we move back to $q_0$ without consuming any characters
+	![](Pasted%20image%2020250510212610.png)
+- **step 4:** 01**0**
+	- we read 0 and move to $q_1$
+	![](Pasted%20image%2020250510212723.png)
+- End of string
+- Current state $q_1\in F$ so $010 \in L(M)$
+
+- What happens if we make a wrong decision
+![](Pasted%20image%2020250510212922.png)
+- at step 1 (**0**10) we would be stuck in $q_0$ as there are no transitions labelled 1
+	- in this situation we cannot state that $w\notin L(M)$
+	- to establish that $w\notin L(M)$ we have to try **all** possibilities
+
+#### Computing by Hand
+- When you are simulating a NFSA, you can often do better  
+	- Start from an accepting state and **work backwards**  
+	- Consume the string from the **end** to the **start**  
+	- Follow the transitions in their **reverse direction**  
+		- For ϵ-transitions, follow the edge **without** consuming an input symbol  
+	- If you can find a **reverse path** to the start state then string is **accepted**  
 
 ---
 
@@ -78,13 +108,13 @@
 #### Example of Subset Construction
 
 - Given an NFSA with states {q1,q2}{*q*1​,*q*2​}, the corresponding DFSA will have states:
-    - ∅∅ (empty set).
-    - {q1}.
-    - {q2}.
-    - {q1,q2}.
+    - $\emptyset$ (empty set)
+    - $\{q_1\}$
+    - $\{q_2\}$
+    - $\{q_1,q_2\}$
 - The transitions in the DFSA are defined based on the transitions of the NFSA. For example:
-    - If δ(q1,0)={q2} and δ(q2,0)={q1}, then in the DFSA:
-        - From {q1,q2}, on input `0`, the DFSA transitions to {q1,q2}.
+    - If $\delta(q_1,0)=\{q_2\}$ and $\delta(q_2,0)=\{q_1\}$, then in the DFSA:
+        - From $\{q_1,q_2\}$, on input $0$, the DFSA transitions to $\{q_1,q_2\}$
 
 ---
 
@@ -96,23 +126,36 @@
 
 #### Closure Under Union
 
-- If L1​ and L2​ are regular languages, then L1∪L2 is also regular.
+- If $L_1$​ and $L_2$​ are regular languages, then $L_1\cup L_2$ is also regular.
 - **Proof Idea**:
-    - Given two NFSAs N1​ and N2, we can construct a new NFSA N that accepts L(N1)∪L(N2).
-    - The new NFSA N has a new start state with **ε-transitions** to the start states of N1​ and N2​.
+    - Given two NFSAs $N_1$​ and $N_2$, we can construct a new NFSA $N$ that accepts $L(N_1)\cup L(N_2)$
+    - The new NFSA $N$ has a new start state with **ε-transitions** to the start states of $N_1$​ and $N_2$.
+    ![](Pasted%20image%2020250510214753.png)
+
+#### Closure Under Intersection
+
+- If $L_1$​ and $L_2$​ are regular languages, then $L_1\cap L_2$ is also regular.
+- **Proof Idea**:
+    - Given two NFSAs $N_1$​ and $N_2$, we can construct a new NFSA $N$ that accepts $L(N_1)\cap L(N_2)$
+    - The new NFSA $N$ has a new start state with **ε-transitions** to the start states of $N_1$​ and $N_2$.
+	
+#### Closure Under Complement
+
+- If $L_1$​​ is a regular language, then $L_1^C$ is also regular.
 
 #### Closure Under Concatenation
 
 - If L1​ and L2​ are regular languages, then L1∘L2 (concatenation) is also regular.
 - **Proof Idea**:
     - The NFSA for L1∘L2 connects the accept states of N1*N*1​ to the start state of N2*N*2​ using ε-transitions.
-
+	![](Pasted%20image%2020250510214835.png)
+	
 #### Closure Under Star
 
 - If L is a regular language, then L* (Kleene star) is also regular.
 - **Proof Idea**:
     - The NFSA for L* adds ε-transitions from the accept states back to the start state, allowing for zero or more repetitions of L.
-
+	![](Pasted%20image%2020250510214930.png)
 ---
 
 ### Example: NFSA for Strings Ending with `01`

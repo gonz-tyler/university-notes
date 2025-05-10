@@ -140,17 +140,23 @@
 #### Examples of REs
 
 1. **RE for Strings with Exactly One `1`**:
-    - `0*10*`
-    - Matches: `1`, `01`, `10`, `001`, `100`, etc.
+    - $L(0^*\circ1\circ0^*)$
+    - Matches: $\{1, 01, 10, 010,...\}$
     - Does not match: `11`, `000`, `1010`.
 2. **RE for Strings with At Least One `1`**:
-    - `Σ*1Σ*` (where `Σ = {0, 1}`)
-    - Matches: `1`, `01`, `10`, `111`, `0101`, etc.
+    - $L(\Sigma^*\circ1\circ\Sigma^*$ (where $\Sigma = \{0, 1\}$)
+    - Matches: $\{1, 01, 10, 111, 0101,...\}$ 
     - Does not match: `000`.
 3. **RE for Strings with Even Length**:
     - `(00 ∪ 01 ∪ 10 ∪ 11)*`
     - Matches: `00`, `01`, `10`, `11`, `0000`, `0101`, etc.
     - Does not match: `0`, `1`, `000`.
+
+- $\emptyset \circ R = R \circ \emptyset = \emptyset$ ($\emptyset$ concatenated with any $R$ is $\emptyset$)
+- $(R^*)^* = R^*$ (star is idempotent)
+- $\emptyset^* = \varepsilon$ (since $L(\emptyset^0) = \{\varepsilon\}$ and $L(\emptyset^1)=\{\}$)
+- $R\cup\emptyset = \emptyset \cup R = R$ 
+- $R\circ \varepsilon = \varepsilon \circ R= R$ 
 
 ---
 
