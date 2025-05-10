@@ -8,35 +8,20 @@
         "type": "tabs",
         "children": [
           {
-            "id": "ddb9670b408148f4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "year3/spring/distributed-systems/week10.1.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "week10.1"
-            }
-          },
-          {
             "id": "5accd74e805ff758",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "year3/spring/distributed-systems/week07.2.md",
-                "mode": "preview",
+                "file": "year3/spring/languages-computability/week01.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "week07.2"
+              "title": "week01"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -197,31 +182,39 @@
   },
   "active": "5accd74e805ff758",
   "lastOpenFiles": [
-    "year3/spring/distributed-systems/week07.1.md",
-    "year3/spring/distributed-systems/week06.2.md",
-    "year3/spring/distributed-systems/week06.1.md",
-    "year3/spring/distributed-systems/week05.2.md",
-    "year3/spring/distributed-systems/week05.1.md",
-    "year3/spring/distributed-systems/week04.1.md",
-    "year3/spring/distributed-systems/week07.2.md",
-    "year3/spring/distributed-systems/week04.2.md",
-    "year3/spring/distributed-systems/week03.2.md",
-    "year3/spring/distributed-systems/week03.1.md",
-    "year3/spring/distributed-systems/week02.2.md",
-    "year3/spring/distributed-systems/week02.1.md",
-    "year3/spring/distributed-systems/week01.2.md",
-    "year3/spring/distributed-systems/week01.1.md",
-    "year3/spring/distributed-systems/week10.2.md",
+    "Pasted image 20250510191308.png",
     "year3/spring/distributed-systems/week10.1.md",
-    "year3/spring/distributed-systems/week09.2.md",
-    "[university-notes/year3/spring/distributed-systems/Pasted.md",
+    "year3/spring/languages-computability/week01.md",
+    "year3/spring/languages-computability/Pasted image 20250510183921.png",
+    "year3/spring/distributed-systems/week07.1.md",
+    "year3/spring/distributed-systems/week07.2.md",
+    "year3/spring/languages-computability/week03.md",
+    "year3/spring/languages-computability/week02.md",
+    "year3/spring/languages-computability/week10.md",
+    "year3/spring/languages-computability/week09.md",
+    "year3/spring/languages-computability/week08.md",
+    "year3/spring/languages-computability/week07.md",
+    "year3/spring/languages-computability/week06.md",
+    "year3/spring/languages-computability/week05.md",
+    "year3/spring/languages-computability/week04.md",
+    "year3/spring/languages-computability/mcq_rev.md",
+    "year3/spring/enterprise-computing/week01.md",
+    "year3/fall/software-engineering/week07.md",
+    "year3/fall/software-engineering/week06.md",
+    "year3/fall/software-engineering/week05.md",
+    "year3/fall/software-engineering/week04.md",
+    "year3/fall/software-engineering/week03.md",
+    "year3/fall/software-engineering/week02.md",
+    "year3/fall/software-engineering/week01.md",
+    "year3/fall/robotics/week10.md",
+    "year3/fall/robotics/week09.md",
+    "year3/fall/robotics/week08.md",
     "[university-notes/year3/spring/distributed-systems",
     "[university-notes/year3/spring",
     "[university-notes/year3",
     "[university-notes",
     "year3/spring/distributed-systems/Pasted image 20250426190458.png",
     "year3/spring/distributed-systems/Pasted image 20250426190918.png",
-    "year3/spring/distributed-systems/Pasted image 20250426190724.png",
-    "README.md"
+    "year3/spring/distributed-systems/Pasted image 20250426190724.png"
   ]
 }

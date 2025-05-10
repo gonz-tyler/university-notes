@@ -1,13 +1,13 @@
 # MCQ Revision
 
-### **1. Check if the Language Requires Counting**
+### 1. Check if the Language Requires Counting
 
-### **Why Counting Matters**:
+#### Why Counting Matters:
 
 - **Regular languages** (recognized by FSAs) **cannot count**. They have no memory other than the current state.
 - If a language requires counting (e.g., matching the number of `0`s and `1`s), it is **not regular**.
 
-### **Example: {0n1n∣n≥0}{0*n*1*n*∣*n*≥0}**
+#### Example: {0n1n∣n≥0}{0*n*1*n*∣*n*≥0}
 
 - This language requires matching the number of `0`s and `1`s.
 - An FSA cannot "remember" how many `0`s it has seen to match the number of `1`s.
@@ -15,9 +15,9 @@
 
 ---
 
-### **2. What Does S→aSb∣Sb∣ϵ*S*→*aSb*∣*Sb*∣*ϵ* Mean?**
+### 2. What Does S→aSb∣Sb∣ϵ*S*→*aSb*∣*Sb*∣*ϵ* Mean?
 
-### **Context-Free Grammar (CFG) Rules**:
+#### Context-Free Grammar (CFG) Rules:
 
 - S→aSb*S*→*aSb*: This rule generates strings where the number of `a`s and `b`s are equal.
     - For example:
@@ -33,7 +33,7 @@
         - Apply S→ϵ*S*→*ϵ*: bb*bb*.
 - S→ϵ*S*→*ϵ*: This rule terminates the derivation, producing the empty string.
 
-### **Language Generated**:
+#### Language Generated:
 
 - The CFG S→aSb∣Sb∣ϵ*S*→*aSb*∣*Sb*∣*ϵ* generates the language {anbm∣n≤m}{*anbm*∣*n*≤*m*}.
     - aSb*aSb* ensures n≤m*n*≤*m*.

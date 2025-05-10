@@ -1,4 +1,4 @@
-# **Week 08: Undecidability and Reducibility**
+# Week 08: Undecidability and Reducibility
 
 ## Notes
 

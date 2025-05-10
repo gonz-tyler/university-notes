@@ -1,4 +1,4 @@
-# **Week 07: Decidability and Countability**
+# Week 07: Decidability and Countability
 
 ## Notes
 

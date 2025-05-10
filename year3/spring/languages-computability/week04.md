@@ -1,4 +1,4 @@
-# **Week 4: Pushdown Automata (PDAs)**
+# Week 04: Pushdown Automata (PDAs)
 ## Notes
 ---
 

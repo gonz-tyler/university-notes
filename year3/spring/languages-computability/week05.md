@@ -1,4 +1,4 @@
-# Week 5: Context-sensitive Languages (CSLs)
+# Week 05: Context-sensitive Languages (CSLs)
 ## Notes
 ---
 
