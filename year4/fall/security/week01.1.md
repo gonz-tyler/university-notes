@@ -1,4 +1,4 @@
-# Week 1.1: Introduction to Information Security
+# Week 01.1: Introduction to Information Security
 
 ## Notes
 ---
