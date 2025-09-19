@@ -3,8 +3,6 @@
 ## Notes
 ---
 
-Markdown
-
 ### **1. Introduction to Information Security**
 
 Information security is the process of preventing and detecting the unauthorised use of your information and the science of guarding information systems and assets against the malicious behaviours of intelligent adversaries.
