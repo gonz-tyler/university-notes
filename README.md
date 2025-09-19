@@ -1,6 +1,6 @@
-## University Notes made using Doom Emacs
+## University Notes made using Doom Emacs and Obsidian
 
-commands
+doom commands
 - SPC fr - find recent files
 - :q - kill current window
 - SPC ff - look for files and create files
