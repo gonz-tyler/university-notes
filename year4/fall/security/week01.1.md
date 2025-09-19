@@ -7,16 +7,16 @@ Markdown
 
 ### **1. Introduction to Information Security**
 
-[cite_start]Information security is the process of preventing and detecting the unauthorised use of your information [cite: 40] [cite_start]and the science of guarding information systems and assets against the malicious behaviours of intelligent adversaries[cite: 41].
+Information security is the process of preventing and detecting the unauthorised use of your information and the science of guarding information systems and assets against the malicious behaviours of intelligent adversaries.
 
-* [cite_start]**Security vs. Reliability**: Security deals with intentional faults from intelligent adversaries, whereas reliability deals with accidental faults or failures[cite: 42, 43].
-* **Malicious Behaviours**: These can include:
-    * [cite_start]**Fraud**: Deceiving someone to get money, goods, or services[cite: 49].
-    * [cite_start]**Theft**: Stealing something from a person or place[cite: 50].
-    * [cite_start]**Terrorism**: Causing damage, disruption, and intimidation[cite: 51].
-    * [cite_start]**Vandalism**: Damaging or destroying something deliberately[cite: 51].
-    * [cite_start]**Espionage**: Stealing information or commercial secrets[cite: 52].
-    * [cite_start]**Sabotage**: Causing damage or destruction to gain an advantage[cite: 52].
+- **Security vs. Reliability**: Security deals with intentional faults from intelligent adversaries, whereas reliability deals with accidental faults or failures.
+- **Malicious Behaviours**: These can include:
+    - **Fraud**: Deceiving someone to get money, goods, or services.
+    - **Theft**: Stealing something from a person or place.
+    - **Terrorism**: Causing damage, disruption, and intimidation.
+    - **Vandalism**: Damaging or destroying something deliberately.
+    - **Espionage**: Stealing information or commercial secrets.
+    - **Sabotage**: Causing damage or destruction to gain an advantage.
 
 ---
 
@@ -24,9 +24,9 @@ Markdown
 
 Security and cryptography have many application examples across different sectors:
 
-* [cite_start]**Home and Business**: mobile phones [cite: 57][cite_start], DVD players [cite: 58][cite_start], game consoles [cite: 59][cite_start], prepayment electricity meters [cite: 60][cite_start], Internet protocols (SSL, S/MIME, PGP, SSH) [cite: 61][cite_start], software license numbers [cite: 62][cite_start], and door access cards[cite: 63].
-* [cite_start]**Banking**: ATM (automatic teller machines) were the first large-scale commercial use of crypto[cite: 70]. [cite_start]Other uses include card authentication codes [cite: 71][cite_start], PIN verification [cite: 72][cite_start], funds transfers [cite: 73][cite_start], online banking [cite: 74][cite_start], electronic purses [cite: 75][cite_start], and cryptocurrencies[cite: 76].
-* [cite_start]**Military**: Identify friend/foe systems [cite: 82][cite_start], jamming resistant radios [cite: 83][cite_start], weapon-system unlock codes [cite: 84][cite_start], permissive action links for nuclear warheads [cite: 85][cite_start], and navigation signals like GPS[cite: 86, 87].
+- **Home and Business**: mobile phones, DVD players, game consoles, prepayment electricity meters, Internet protocols (SSL, S/MIME, PGP, SSH), software license numbers, and door access cards.
+- **Banking**: ATM (automatic teller machines) were the first large-scale commercial use of crypto. Other uses include card authentication codes, PIN verification, funds transfers, online banking, electronic purses, and cryptocurrencies[cite: 76].
+- **Military**: Identify friend/foe systems, jamming resistant radios, weapon-system unlock codes, permissive action links for nuclear warheads, and navigation signals like GPS.
 
 ---
 
