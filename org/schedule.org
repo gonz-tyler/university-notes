@@ -1,0 +1,19 @@
+#+TITLE: Weekly Class Schedule
+#+CATEGORY: Schedule
+* Classes
+** SECURITY :class:
+<2025-09-22 Mon 12:00-13:00 +1w>
+** DATA ENGINEERING :class:
+<2025-09-23 Tue 12:00-13:00 +1w>
+** INTRO TO ML AND DM :practical:
+<2025-09-23 Tue 14:00-16:00 +1w>
+** DATA ENINEERING :practical:
+<2025-09-24 Wed 11:00-13:00 +1w>
+** SECURITY :class:
+<2025-09-25 Thu 12:00-13:00 +1w>
+** RESEARCH METHODS :practical:
+<2025-09-25 Thu 14:00-15:00 +1w>
+** INTRO TO ML AND DM :class:
+<2025-09-26 Fri 12:00-13:00 +1w>
+** RESEARCH METHODS :class:
+<2025-09-26 Fri 14:00-15:00 +1w>
