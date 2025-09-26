@@ -1,0 +1,26 @@
+#+TITLE: University Tasks
+#+CATEGORY: Assignments
+
+* TODO Security Assignment 1 :assignment:
+  DEADLINE: <2025-9-22 Mon>
+  :PROPERTIES:
+  :weight: 0.25
+  :END:
+
+* TODO Data Engineering Report :assignment:
+  DEADLINE: <2025-10-15 Wed>
+  :PROPERTIES:
+  :weight: 0.30
+  :END:
+
+* TODO Intro to ML Project Proposal :assignment:
+  DEADLINE: <2025-10-20 Mon>
+  :PROPERTIES:
+  :weight: 0.20
+  :END:
+
+* TODO Research Methods Essay :assignment:
+  DEADLINE: <2025-10-25 Sat>
+  :PROPERTIES:
+  :weight: 0.25
+  :END:
