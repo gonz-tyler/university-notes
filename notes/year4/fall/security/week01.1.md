@@ -1,11 +1,8 @@
 # Week 01.1: Introduction to Information Security
 
-## Notes
----
+## **1. Introduction to Information Security**
 
-### **1. Introduction to Information Security**
-
-Information security is the process of preventing and detecting the unauthorised use of your information and the science of guarding information systems and assets against the malicious behaviours of intelligent adversaries.
+Information security is the process of *preventing* and *detecting* the unauthorised use of your information and the science of guarding information systems and assets against the malicious behaviours of intelligent adversaries.
 
 - **Security vs. Reliability**: Security deals with intentional faults from intelligent adversaries, whereas reliability deals with accidental faults or failures.
 - **Malicious Behaviours**: These can include:
@@ -18,7 +15,7 @@ Information security is the process of preventing and detecting the unauthorised
 
 ---
 
-### **2. Applications of Security**
+## **2. Applications of Security**
 
 Security and cryptography have many application examples across different sectors:
 
@@ -28,7 +25,7 @@ Security and cryptography have many application examples across different sector
 
 ---
 
-### **3. The Core Security Goals: The CIA Triad**
+## **3. The Core Security Goals: The CIA Triad**
 
 In 1973, James Anderson identified three types of security violations in computer systems:
 1.  Unauthorised information release.
@@ -37,22 +34,22 @@ In 1973, James Anderson identified three types of security violations in compute
 
 These violations are countered by the three main goals for computer security, known as the CIA triad.
 
-#### **3.1. Confidentiality**
+### **3.1. Confidentiality**
 * **Goal**: The prevention of unauthorised information release. It means information is accessible only to authorised users.
 * **Violation Example**: An unauthorised user reads and copies encrypted passwords from a password file and then decrypts them offline using brute force.
 * **Variants**: Variants of confidentiality include anonymity, copy protection, information flow control, unlinkability, and unobservability.
 
-#### **3.2. Integrity**
+### **3.2. Integrity**
 * **Goal**: The prevention of unauthorised information modification. In computing, this means preventing unauthorised users from writing information they are not entitled to. In data communication, it involves the detection of modifications to transmitted data.
 * **Violation Example**: An unauthorised user changes the password file, perhaps by inserting a new entry (a "backdoor") or by changing the root password.
 
-#### **3.3. Availability**
+### **3.3. Availability**
 * **Goal**: Ensuring that authorised users are not prevented from accessing information and associated assets when required.
 * **Violation Example**: An internet 'flooding' attack, where attackers overwhelm a server by sending it large numbers of connection requests, causing a denial of service.
 
 ---
 
-### **4. Additional Security Goals**
+## **4. Additional Security Goals**
 
 * **Authentication**: The process of verifying an identity claimed by or for a system entity.
 * **Access control (Authorisation)**: The protection of system resources against unauthorised access.
@@ -60,7 +57,7 @@ These violations are countered by the three main goals for computer security, kn
 
 ---
 
-### **5. Security Analysis: Vulnerabilities, Threats, and Assets**
+## **5. Security Analysis: Vulnerabilities, Threats, and Assets**
 
 * **Assets**: What we want to protect, such as Hardware, Software, Data, and Users.
 * **Vulnerability**: A flaw in the design or implementation of a computer system that could lead to a security violation. Examples include program bugs, configuration errors, and poor choice of passwords.
@@ -76,7 +73,7 @@ These violations are countered by the three main goals for computer security, kn
 
 ---
 
-### **6. How to Practice Security**
+## **6. How to Practice Security**
 
 There are three intuitive strategies for security:
 
@@ -86,21 +83,21 @@ There are three intuitive strategies for security:
 
 ---
 
-### **7. A 3-Step Method for Information Protection**
+## **7. A 3-Step Method for Information Protection**
 
 A method for tackling an information protection problem involves three steps:
 
-#### **Step 1: Drawing up a threat model via security requirement analysis**
+### **Step 1: Drawing up a threat model via security requirement analysis**
 * Identify assets to be protected and their value.
 * Identify vulnerabilities, threats, and risk priorities.
 * Identify legal and contractual requirements.
 
-#### **Step 2: Formulating a suitable security policy**
+### **Step 2: Formulating a suitable security policy**
 * The policy models what ought to be protected.
 * It defines which activities are or are not authorised and which information flows are or are not prohibited.
 * The policy should be precise, well-documented, and followed.
 
-#### **Step 3: Implementing specific protection mechanisms to enforce the policy**
+### **Step 3: Implementing specific protection mechanisms to enforce the policy**
 * Examples include:
     * Hardware protection mechanisms.
     * Secure operating systems.

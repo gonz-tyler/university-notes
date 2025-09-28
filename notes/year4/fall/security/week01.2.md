@@ -1,15 +1,12 @@
-# Week01.2: Introduction to Cryptography
+# Week 1.2: Introduction to Cryptography
 
-## Notes
----
-
-### Overview of Cryptography
+## Overview of Cryptography
 
 Cryptography is defined as "the science and study of secret writing," a term derived from the Greek words **crypto** (hidden/secret) and **grafia** (writing). The fundamental purpose of cryptography is to protect data by converting it into an unreadable form. This ensures that the data cannot be accessed for unauthorized use, its content is hidden, its authenticity can be verified, undetected modification is prevented, and it cannot be disowned by its originator. It is essential for passing secret information through potentially insecure channels, with applications in military campaigns, online banking, and diplomatic communications.
 
 ---
 
-### The Four Fundamental Goals of Cryptography
+## The Four Fundamental Goals of Cryptography
 
 Cryptography aims to achieve four primary security goals in the face of adversaries:
 
@@ -20,7 +17,7 @@ Cryptography aims to achieve four primary security goals in the face of adversar
 
 ---
 
-### Core Terminology in Cryptography
+## Core Terminology in Cryptography
 
 Understanding the following terms is essential for studying cryptography:
 
@@ -35,11 +32,11 @@ The **conventional encryption model** works as follows: a sender uses an encrypt
 
 ---
 
-### Main Cryptography Techniques
+## Main Cryptography Techniques
 
 Cryptography is broadly divided into two main categories based on key management:
 
-#### Symmetric Encryption
+### Symmetric Encryption
 
 * Also known as **secret key cryptography**.
 * It uses a **single, shared key** for both encryption and decryption.
@@ -49,7 +46,7 @@ Cryptography is broadly divided into two main categories based on key management
 * The main challenge is the secure distribution of the shared secret key between the sender and receiver.
 * Common algorithms include **DES, 3DES, and AES**.
 
-#### Asymmetric (Non-symmetric) Encryption
+### Asymmetric (Non-symmetric) Encryption
 
 * Also known as **public key cryptography**.
 * It uses a **pair of keys**: a public key for encryption and a private (secret) key for decryption.
@@ -61,11 +58,11 @@ Cryptography is broadly divided into two main categories based on key management
 
 ---
 
-### Classical (Traditional) Cryptographic Techniques
+## Classical (Traditional) Cryptographic Techniques
 
 Classical ciphers form the foundation of modern cryptography and are based on two main operations: substitution and transposition. These ciphers can be **monoalphabetic** (using a single alphabet/system) or **polyalphabetic** (using multiple alphabets/systems). A combination of several ciphers is called a **product cipher**.
 
-#### Substitution Ciphers
+### Substitution Ciphers
 
 In these ciphers, letters of the plaintext are replaced by other letters, numbers, or symbols.
 
@@ -76,13 +73,13 @@ In these ciphers, letters of the plaintext are replaced by other letters, number
 * **Porta Cipher**: A polygraphic cipher that substitutes blocks of two letters. It uses a keyword to select different substitution rules from a matrix, making it more complex than simple monoalphabetic ciphers.
 * **Vigenère Cipher**: A polyalphabetic cipher that uses a keyword to shift letters by different amounts. The keyword is repeated over the plaintext, and each letter is encrypted using the corresponding key letter as an index into a Vigenère square (a table of 26 Caesar ciphers).
 
-#### Transposition Ciphers
+### Transposition Ciphers
 
 These ciphers rearrange the order of the letters in the plaintext without changing the letters themselves.
 
 * **Turning Grille**: This method uses a template (a square sheet with holes) placed over a grid. The plaintext is written into the holes. The grille is then rotated (typically by 90 degrees) and the next part of the message is written. This is repeated until the grid is full. The ciphertext is formed by reading the letters off the grid, usually row by row.
 
-#### Product Ciphers
+### Product Ciphers
 
 These ciphers increase security by combining multiple cryptographic operations, such as both substitution and transposition.
 
@@ -90,16 +87,16 @@ These ciphers increase security by combining multiple cryptographic operations, 
 
 ---
 
-### Block Ciphers vs. Stream Ciphers
+## Block Ciphers vs. Stream Ciphers
 
-#### Block Ciphers
+### Block Ciphers
 
 * A type of symmetric-key encryption.
 * They operate on **fixed-length blocks** of plaintext (e.g., 64 bits).
 * Each block is transformed into a ciphertext block of the same length.
 * A key feature is that the same plaintext block encrypted with the same key will always produce the same ciphertext block.
 
-#### Stream Ciphers
+### Stream Ciphers
 
 * A type of symmetric-key encryption.
 * They encrypt smaller units of plaintext, usually bits.
@@ -111,28 +108,28 @@ These ciphers increase security by combining multiple cryptographic operations, 
 
 ---
 
-### Cryptographic Modes of Operation
+## Cryptographic Modes of Operation
 
 When using a block cipher to encrypt messages longer than a single block, different modes of operation can be used.
 
-#### Electronic Codebook (ECB)
+### Electronic Codebook (ECB)
 
 * The message is divided into blocks, and each block is encrypted separately with the same key: $c_{j}=E_{k}(m_{j})$.
 * It is the simplest mode but is insecure for many applications because identical plaintext blocks result in identical ciphertext blocks, revealing patterns in the data.
 
-#### Cipher-Block Chaining (CBC)
+### Cipher-Block Chaining (CBC)
 
 * This mode introduces dependency between blocks. Each plaintext block is XORed with the *previous ciphertext block* before encryption.
 * An **Initializing Vector (IV)** is used to XOR with the first plaintext block.
 * Formulas: $c_{1}=E_{k}(m_{1}\oplus IV)$ and $c_{j}=E_{k}(m_{j}\oplus c_{j-1})$.
 
-#### Cipher Feedback (CFB)
+### Cipher Feedback (CFB)
 
 * This mode allows a block cipher to act like a stream cipher, encrypting smaller units of data (e.g., $r$ bits, where $r < n$, the block size).
 * It encrypts the previous ciphertext block (or IV for the first step), and the result is XORed with the current plaintext block to produce the current ciphertext.
 * Formula: $C_{i}=E_{k}(C_{i-1})\oplus P_{i}$, with $C_{0}=IV$.
 
-#### Output Feedback (OFB)
+### Output Feedback (OFB)
 
 * This mode also turns a block cipher into a stream cipher. It generates a keystream by repeatedly encrypting an initial value (the IV).
 * The keystream is generated independently of the plaintext and ciphertext. The plaintext is then XORed with this keystream.

@@ -1,14 +1,10 @@
 # Week01: Introduction to Data Engineering
 
-## Notes
----
-
-
-### Foundational Concepts: Data Engineering vs. Data Science
+## Foundational Concepts: Data Engineering vs. Data Science
 
 This summary introduces the core concepts of data engineering, its role in the broader data landscape, and its relationship with data science.
 
-#### What is Data Engineering?
+### What is Data Engineering?
 
 **Data engineering** is the practice of designing and building systems for collecting, storing, and processing data. The primary goal is to make large volumes of data usable for downstream applications, such as data analysis and machine learning. This process requires significant computational and storage resources.
 
@@ -16,7 +12,7 @@ A **data engineer** is a specialized software engineer responsible for creating 
 
 ---
 
-#### What is Data Science?
+### What is Data Science?
 
 **Data science** is an interdisciplinary field that uses scientific methods, algorithms, and statistics to extract knowledge and insights from structured or unstructured data.
 
@@ -24,7 +20,7 @@ A **data scientist**, in contrast to a data engineer, is more focused on the *an
 
 ---
 
-#### The Relationship Between Engineering and Science
+### The Relationship Between Engineering and Science
 
 Data engineering is considered **upstream** from data science. Data engineers prepare the raw data, making it clean and accessible, while data scientists (the **downstream** users) extract knowledge from this prepared data.
 
@@ -34,7 +30,7 @@ In practice, data scientists often spend **70-80% of their time on data engineer
 
 ---
 
-### The Data Engineering Lifecycle
+## The Data Engineering Lifecycle
 
 The data engineering lifecycle is a process that transforms raw data into a useful data product. It consists of five key components, often referred to as an **ETL (Extract, Transform, Load)** or **Ingestion-Transform-Serving** process.
 
@@ -46,7 +42,7 @@ The data engineering lifecycle is a process that transforms raw data into a usef
 
 ---
 
-#### 1. Generation: Understanding Data Sources
+### 1. Generation: Understanding Data Sources
 
 The first step is to understand the source systems where data is generated. Sources can include:
 * **Transactional databases** from applications.
@@ -57,7 +53,7 @@ Data engineers must understand the data's characteristics at its source, includi
 
 ---
 
-#### 2. Ingestion: Extracting the Data
+### 2. Ingestion: Extracting the Data
 
 Ingestion involves extracting data from its source. This can be one of the most challenging parts of the lifecycle because source systems are often outside the engineer's control and can be unresponsive, provide poor-quality data, or experience interruptions.
 
@@ -68,7 +64,7 @@ Key questions during ingestion include:
 
 ---
 
-#### 3. Storage: Persisting the Data
+### 3. Storage: Persisting the Data
 
 Data needs to be stored at various points throughout the lifecycle. A data engineer must choose appropriate storage systems (e.g., data warehouses, databases) by considering:
 * **Compatibility** with the data pipeline.
@@ -79,7 +75,7 @@ Data needs to be stored at various points throughout the lifecycle. A data engin
 
 ---
 
-#### 4. Transform: Preparing the Data
+### 4. Transform: Preparing the Data
 
 Transformation is the process of converting ingested data into the required format and structure for its final use case. This is a critical step driven by the needs of downstream tasks.
 
@@ -92,7 +88,7 @@ It's important to note that this is different from the preprocessing done for ma
 
 ---
 
-#### 5. Serving/Load: Delivering Value
+### 5. Serving/Load: Delivering Value
 
 The final stage is serving the transformed data to its consumers to generate value. The primary consumers are:
 
@@ -105,11 +101,11 @@ The final stage is serving the transformed data to its consumers to generate val
 
 ---
 
-### The Role and Skills of a Data Engineer
+## The Role and Skills of a Data Engineer
 
 A successful data engineer requires a blend of technical expertise and business acumen.
 
-#### Technical Skills
+### Technical Skills
 
 * **Core Competencies**: Data management, architecture, security, and software engineering.
 * **Programming Languages**: Proficiency in languages like Python, Java, SQL, and Bash.
@@ -118,7 +114,7 @@ A successful data engineer requires a blend of technical expertise and business 
     * **Apache Airflow**: For orchestrating and managing complex data workflows.
     * **TensorFlow Extended (TFX)** and **Scikit-learn**: For building ML pipelines.
 
-#### Business Responsibilities
+### Business Responsibilities
 
 * **Communication**: Effectively communicating with both technical and non-technical stakeholders.
 * **Requirements Gathering**: Understanding stakeholder needs and the business impact of data projects.
@@ -130,7 +126,7 @@ In an organization, the data engineer acts as a central hub, collaborating with 
 
 ---
 
-### Data Engineering Pipeline Tools
+## Data Engineering Pipeline Tools
 
 A **data engineering pipeline** encapsulates all the steps required to process data from source to destination. These pipelines can be classified based on their primary function:
 
