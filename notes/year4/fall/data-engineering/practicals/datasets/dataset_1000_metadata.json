@@ -1,0 +1,142 @@
+{
+  "resources": [
+    {
+      "name": "dataset_d_org_1000",
+      "type": "table",
+      "path": "datasets/dataset_D_org_1000.csv",
+      "scheme": "file",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "rec_id",
+            "type": "integer"
+          },
+          {
+            "name": "given_name",
+            "type": "string"
+          },
+          {
+            "name": "surname",
+            "type": "string"
+          },
+          {
+            "name": "street_number",
+            "type": "integer"
+          },
+          {
+            "name": "address_1",
+            "type": "string"
+          },
+          {
+            "name": "address_2",
+            "type": "string"
+          },
+          {
+            "name": "suburb",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "integer"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "date_of_birth",
+            "type": "integer"
+          },
+          {
+            "name": "age",
+            "type": "integer"
+          },
+          {
+            "name": "phone_number",
+            "type": "string"
+          },
+          {
+            "name": "soc_sec_id",
+            "type": "integer"
+          },
+          {
+            "name": "blocking_number",
+            "type": "integer"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dataset_d_dup_1000",
+      "type": "table",
+      "path": "datasets/dataset_D_dup_1000.csv",
+      "scheme": "file",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "rec_id",
+            "type": "integer"
+          },
+          {
+            "name": "given_name",
+            "type": "string"
+          },
+          {
+            "name": "surname",
+            "type": "string"
+          },
+          {
+            "name": "street_number",
+            "type": "integer"
+          },
+          {
+            "name": "address_1",
+            "type": "string"
+          },
+          {
+            "name": "address_2",
+            "type": "string"
+          },
+          {
+            "name": "suburb",
+            "type": "string"
+          },
+          {
+            "name": "postcode",
+            "type": "integer"
+          },
+          {
+            "name": "state",
+            "type": "string"
+          },
+          {
+            "name": "date_of_birth",
+            "type": "integer"
+          },
+          {
+            "name": "age",
+            "type": "integer"
+          },
+          {
+            "name": "phone_number",
+            "type": "string"
+          },
+          {
+            "name": "soc_sec_id",
+            "type": "integer"
+          },
+          {
+            "name": "blocking_number",
+            "type": "integer"
+          }
+        ]
+      }
+    }
+  ]
+}
