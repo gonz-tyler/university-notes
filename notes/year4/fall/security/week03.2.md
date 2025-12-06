@@ -1,60 +1,91 @@
-# Week03.2: Gradient Descent Revision Notes
+# Week 03.2: Asymmetric Cryptography II Revision Notes
 
 ---
 
-## 1. Introduction to Gradient Descent
+## 1. Asymmetric Cryptography Recap
 
-**Gradient Descent (GD)** is the primary optimization algorithm used in machine learning. Its purpose is to find the minimum value of a function by iteratively moving in the direction of steepest descent. In machine learning, we use it to minimize a **loss function**, thereby finding the optimal parameters (weights) for a model.
-
-### The Core Concept 🏔️
-
--   **Function**: Imagine a function as a landscape with hills and valleys. Our goal is to find the lowest point in a valley (a minimum).
--   **Gradient**: The gradient (or derivative) of the function at any point tells us the direction of the steepest *ascent* (uphill).
--   **The Algorithm**: To find the minimum, we start at a random point and repeatedly take a small step in the **opposite direction of the gradient** (downhill).
-
-### The Update Rule
-
-The algorithm iteratively updates the model's parameters ($\theta$) using the following rule:
-
-$$
-\theta_{\text{new}} = \theta_{\text{old}} - \alpha \nabla_{\theta}f(\theta)
-$$
-
--   $\theta$ represents the parameters of the model (e.g., the weights `w` in linear regression).
--   $f(\theta)$ is the loss function we want to minimize.
--   $\nabla_{\theta}f(\theta)$ is the gradient of the loss function with respect to the parameters.
--   $\alpha$ is the **learning rate**, a small positive number that controls the size of each step. Choosing a good learning rate is crucial:
-    -   Too small: Convergence will be very slow.
-    -   Too large: The algorithm might overshoot the minimum and fail to converge.
-
-### Convex vs. Non-Convex Functions
-
--   **Convex Functions**: These are bowl-shaped functions with a single global minimum (e.g., the SSE loss function for linear regression). GD is guaranteed to find this global minimum.
--   **Non-Convex Functions**: These functions have multiple local minima (valleys). GD is only guaranteed to find a local minimum, not necessarily the global one. The loss landscapes of deep learning models are highly non-convex.
+- **Symmetric vs. Asymmetric**:
+  - **Symmetric**: Both parties share the **same** secret key. The main challenge is securely distributing this key.
+  - **Asymmetric**: Uses a pair of keys: a **public key** for encryption/verification and a **private key** for decryption/signing.
+- **Key Distribution**: A major advantage of asymmetric cryptography is facilitating key distribution. It allows two parties to establish a shared secret over an insecure channel without prior contact.
 
 ---
 
-## 2. Stochastic Gradient Descent (SGD)
+## 2. Mathematical Background
 
-Standard Gradient Descent (also called **Batch GD**) has a major drawback: it is computationally expensive. For every single update step, it must calculate the gradient using the **entire training dataset**. This becomes impractical for large datasets.
+### The Discrete Logarithm Problem (DLP)
 
-**Stochastic Gradient Descent (SGD)** solves this by estimating the gradient using a smaller, random subset of the data.
+A core "hard problem" used in asymmetric cryptography (unlike RSA which uses factorization).
 
-### Variants of SGD
+- **Modular Exponentiation**: Calculating $y = g^x \pmod p$ is easy.
+- **Discrete Logarithm**: Given $y, g, p$, calculating $x$ is computationally **hard**. This one-way function property is the basis for Diffie-Hellman and ElGamal.
 
-1.  **Standard SGD**: At each step, the gradient is calculated using only **one** randomly selected data sample. This is very fast but produces a "noisy" gradient, causing the loss to fluctuate significantly.
-2.  **Mini-Batch SGD**: This is a compromise between Batch GD and standard SGD. At each step, the gradient is calculated using a small, random subset of the data called a **mini-batch** (e.g., 32, 64, or 128 samples). This is the most common approach used in modern machine learning and deep learning.
+### Order and Generators
 
-### The SGD Update Rule (Mini-Batch)
+- **Order**: The smallest positive integer $r$ such that $m^r \equiv 1 \pmod n$.
+- **Generator**: An element $g$ is a generator of a set $\mathbb{Z}_n^*$ if taking powers of $g$ produces every element in that set. In Diffie-Hellman, we use a generator $g$ for the group $\mathbb{Z}_p^*$.
 
-The update rule is similar, but the gradient is an average over the mini-batch $I_t$:
+---
 
-$$
-\theta^{t+1} = \theta^{t} - \alpha_t \frac{1}{|I_t|} \sum_{i \in I_t} \nabla_{\theta}f(\theta, x_i)
-$$
+## 3. Diffie-Hellman Key Exchange (DH)
 
-### Trade-offs and Benefits of SGD
+A protocol that allows two parties (Alice and Bob) to agree on a shared secret key over an insecure channel.
 
--   **Computational Cost**: SGD is far more efficient. If the full dataset has `N` samples and the mini-batch has `d` samples, the cost per step is reduced from $O(N \cdot p)$ to $O(d \cdot p)$, where `p` is the number of features.
--   **Convergence Speed**: SGD converges much faster in terms of wall-clock time. While the loss may bounce around more, it makes progress much more quickly.
--   **Optimization**: The noisy updates in SGD can help the algorithm escape from shallow local minima, which can sometimes lead to a better overall solution in non-convex problems.
+### The Protocol (2 Parties)
+
+1.  **Agreement**: Alice and Bob publicly agree on a large prime $n$ and a generator $g$.
+2.  **Private Choices**:
+    - Alice picks a random private integer $x$.
+    - Bob picks a random private integer $y$.
+3.  **Public Exchange**:
+    - Alice computes $X = g^x \pmod n$ and sends it to Bob.
+    - Bob computes $Y = g^y \pmod n$ and sends it to Alice.
+4.  **Shared Secret**:
+    - Alice computes $k = Y^x \pmod n = (g^y)^x = g^{xy} \pmod n$.
+    - Bob computes $k = X^y \pmod n = (g^x)^y = g^{xy} \pmod n$.
+    - Both now share the secret key $k = g^{xy} \pmod n$.
+
+### Vulnerability: Man-in-the-Middle (MITM)
+
+Diffie-Hellman does **not** authenticate the participants.
+
+- **Attack**: Mallory intercepts Alice's public value $X$ and sends her own value $X'$ to Bob. She intercepts Bob's $Y$ and sends $Y'$ to Alice.
+- **Result**: Alice thinks she shares a key with Bob, but she shares one with Mallory. Bob also shares a different key with Mallory. Mallory can now decrypt, read, modify, and re-encrypt all messages between them.
+
+---
+
+## 4. ElGamal Cryptosystem
+
+An asymmetric encryption and signature algorithm based on Diffie-Hellman.
+
+### Key Generation
+
+1.  Choose a large prime $p$ and a generator $g$.
+2.  Choose a private key $x$.
+3.  Compute public key component $y = g^x \pmod p$.
+4.  **Public Key**: $(p, g, y)$.
+5.  **Private Key**: $x$.
+
+### Encryption
+
+To encrypt a message $M$ for Bob (using Bob's public key):
+
+1.  Choose a random ephemeral (temporary) secret $k$.
+2.  Compute $c_1 = g^k \pmod p$.
+3.  Compute $c_2 = M \cdot y^k \pmod p$.
+4.  **Ciphertext**: The pair $(c_1, c_2)$. Note that the ciphertext is twice the size of the plaintext.
+
+### Decryption
+
+To decrypt ciphertext $(c_1, c_2)$ (using Bob's private key $x$):
+
+1.  Compute the shared secret $s = c_1^x \pmod p$.
+2.  Compute $M = c_2 \cdot s^{-1} \pmod p$.
+    - This works because $c_2 \cdot s^{-1} = (M \cdot y^k) \cdot (g^{kx})^{-1} = M \cdot g^{xk} \cdot g^{-xk} = M$.
+
+### Digital Signatures with ElGamal
+
+ElGamal can also be used for signing.
+
+1.  **Sign**: The signer uses their private key $x$ and a random $k$ to generate a signature pair $(s_1, s_2)$ for message $M$.
+2.  **Verify**: The verifier uses the signer's public key $(p, g, y)$ to check if $y^{s_1} s_1^{s_2} \equiv g^M \pmod p$.
