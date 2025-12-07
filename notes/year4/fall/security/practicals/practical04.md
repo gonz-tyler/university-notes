@@ -231,7 +231,11 @@ Explain why the RSA problem is no harder than the problem of finding the prime f
 <details>
 <summary>**Answer:**</summary>
 
->
+> the RSA problem is no harder than integer factorization because factorization provides a direct method to break RSA
+> if an attacker can find the factors $p$ and $q$
+> they can trivially calculate $\phi(N)$ and the private key $d$
+> allowing them to decipher the message
+> therefore breaking RSA is included in the set of things you can do if you can factor integers
 </details>
 
 ---
@@ -245,7 +249,11 @@ Explain the Discrete Logarithm Problem (DLP), say over the integers mod $p$ with
 <details>
 <summary>**Answer:**</summary>
 
->
+> Given a large prime number $p$, a generator $g$ (a primitive root modulo $p$), and a value $h$, the Discrete Logarithm Problem is the task of finding the integer $x$ such that:
+> $g^x \equiv h \pmod p$
+> this problem acts as a One-Way Function:
+> Easy Direction (Exponentiation): Given $x$, it is computationally fast to calculate $h = g^x \pmod p$.
+> Hard Direction (Logarithm): Given $h$, it is computationally infeasible to recover $x$ when $p$ is sufficiently large (e.g., 2048 bits).
 </details>
 
 ---
@@ -269,7 +277,36 @@ Explain the main use of the Diffie-Hellman protocol. Would it be correct to desc
 <details>
 <summary>**Answer:**</summary>
 
->
+> $K = g^{abc} \pmod p$
+> 1. Setup (Public Parameters)
+> Everyone agrees on two public numbers 
+> - a large prime number $p$
+> - a generator $g$
+> 2. Private Keys
+> Each person generates a random secret private key:
+> - Alice: $a$
+> - Bob: $b$
+> - Carol: $c$
+> 3. The Protocol (Round Robin)
+> The goal is for everyone to calculate $g^{abc} \pmod p$. 
+> Since there are 3 people, this requires two rounds of message passing.
+> - Round 1: Injecting the First Key
+>   Everyone calculates their "Public Key" ($g^{private}$) and passes it to the person on their right
+>   - Alice computes $g^a$ and sends to $\rightarrow$ Bob
+>   - Bob computes $g^b$ and sends to $\rightarrow$ Carol
+>   - Carol computes $g^c$ and sends to $\rightarrow$ Alice
+> - Round 2: Injecting the Second Key
+>   Everyone takes the value they received, raises it to the power of their own private key, and passes it to the right again.
+>   - Bob received $g^a$ from Alice computes $(g^a)^b = \mathbf{g^{ab}}$ and sends to $\rightarrow$ Carol
+>   - Carol received $g^b$ from Bob computes $(g^b)^c = \mathbf{g^{bc}}$ and sends to $\rightarrow$ Alice
+>   - Alice received $g^c$ from Carol computes $(g^c)^a = \mathbf{g^{ca}}$ and sends to $\rightarrow$ Bob
+> - Final Step: The Final Computation
+> Everyone takes the value they just received and raises it to their private key one last time. They do not pass this on (this is the secret).
+>   - Carol receives $g^{ab}$ computes $(g^{ab})^c = \mathbf{g^{abc}}$
+>   - Alice receives $g^{bc}$ computes $(g^{bc})^a = \mathbf{g^{abc}}$
+>   - Bob receives $g^{ca}$ computes $(g^{ca})^b = \mathbf{g^{abc}}$
+> Conclusion
+> Alice, Bob, and Carol now all possess the identical value $g^{abc}$.An attacker listening to the network only ever saw the partial values ($g^a, g^b, g^{ab}, \dots$), but never the final complete combination, and never the private keys.
 </details>
 
 ---
@@ -297,12 +334,36 @@ Apply the ElGamal encryption scheme given in lectures with prime $p=11$, generat
 <details>
 <summary>**Encryption Workings:**</summary>
 
->
+> Setup Alice Public Key
+> $y = g^x (\mod p)$
+> $y = 2^8 (\mod 11) = 256 (\mod 11) = 3
+> Alices Public Key - $(p=11,g=2,y=3)$
+> Bob encrypts message using his random key and Alices public key resulting in ciphertext pair $(c_1,c_2)$
+> $c_1=g^k (\mod p)$
+> $c_1=2^7 (\mod 11) = 128 (\mod 11) = 7$
+> Shared secret
+> $S=y^k (\mod p)$
+> $S=3^7 (\mod 11) = 2187 (\mod 11) = 9$
+> $c_2=m\cdot S (\mod p)$
+> $c_2=5\cdot 9 (\mod 11) = 45 (\mod 11) = 1$
+> Final ciphertext $(c_1,c_2) = (7,1)$
 </details>
 <details>
 <summary>**Decryption Workings:**</summary>
 
->
+> $S=c_1^x (\mod p)$
+> $S=7^8 (mod 11) = 5764801 (mod 11) = 9$
+> Inverse of S
+> $S \cdot S^{-1} \equiv 1 (\mod p)$
+> $9 \cdot x \equiv 1 (\mod 11)$
+> $9 \times 2 = 18 \equiv 7$
+> $9 \times 3 = 27 \equiv 5$
+> $9 \times 4 = 36 \equiv 3$
+> $9 \times 5 = 45 \equiv 1$
+> $S^{-1} = 5$
+> Message
+> $m = c_2\cdot S^{-1} (\mod p)$
+> $m = 1\cdot 5 (\mod 11) = 5$
 </details>
 
 ---
@@ -314,7 +375,12 @@ Why would it be bad to encode a message $m=0$ under the textbook ElGamal encrypt
 <details>
 <summary>**Answer:**</summary>
 
->
+> if $m=0$ the ciphertext component $c_2$ becomes 0 regardless of the random key $k$ used
+> Reasoning:
+> the formula is $c_2 = m \cdot y^k \pmod p$
+> if $m=0$, then $c_2 = 0 \cdot y^k = 0$
+> this completely destroys the masking provided by the random key
+> allowing an attacker to instantly deduce that the plaintext message was 0 just by looking at the ciphertext.
 </details>
 
 ---
@@ -328,10 +394,13 @@ List any advantages and disadvantages that you can see in this.
 <details>
 <summary>**Advantages:**</summary>
 
->
+> sending the same message twice produces different ciphertexts and so patterns cannot be detected in traffic
+> because encryption is randomised attacker cannot verify a guess by encrypting it as it will return a different ciphertext
 </details>
 <details>
 <summary>**Disadvantages:**</summary>
 
->
+> It is difficult to generate truly random numbers every single time and is slower computationally to do different calculations with large primes for each message
+> storage is doubled for message m you need two ciphertexts
+> if a key is accidentally used twice patterns emerge and encryption breaks entirely
 </details>
